@@ -1,0 +1,97 @@
+---
+layout: post
+title:  "Title!"
+date:   2017-12-24 14:48:14 +0800
+categories: jekyll update
+---
+
+Jekyll also offers powerful support for code snippets:
+
+{% highlight python %}
+import theano
+import theano.tensor as T
+import numpy as np
+import matplotlib.pyplot as plt
+
+class Layer(object):
+  def __init__(self, inputs, in_size, out_size, act_function=None):
+    self.W = theano.shared(np.random.normal(0, 1, (in_size, out_size)))
+    self.b = theano.shared(np.zeros((out_size, )) +0.1)
+    self.wxb = T.dot(inputs, self.W) +self.b
+    self.act_function = act_function
+    if act_function is None:
+      self.outputs = self.wxb
+    else:
+      self.outputs = self.act_function(self.wxb)
+
+#to define the layer like this
+
+#l1 = Layer(inputs, 1, 10, T.nnet.relu)
+#l2 = Layer(l1.outputs, 10, 1,None)
+
+
+#make fake data
+x_data = np.linspace(-1, 1, 300)[:, np.newaxis]
+noise = np.random.normal(0, 0.05, x_data.shape)
+y_data = np.square(x_data) -0.5 + noise
+#print(x_data)
+
+#show the data with matplotlib
+
+
+#determine the dtype
+x = T.dmatrix("x")
+y = T.dmatrix("y")
+
+#add layers
+L1 = Layer(x, 1, 10, T.nnet.relu)
+L2 = Layer(L1.outputs, 10, 1)
+
+#compute the cost
+cost = T.mean(T.square(L2.outputs - y))
+#cost = T.mean(-y * T.log(L2.outputs) + (1-y) *T.log(1 - L2.outputs)) 
+#compute the grad
+gW1, gb1, gW2, gb2 = T.grad(cost, [L1.W, L1.b, L2.W, L2.b])
+
+
+#apply gradient descent
+learning_rate = 0.05
+train = theano.function(
+  inputs = [x,y],
+  outputs = cost,
+  updates = [(L1.W, L1.W - learning_rate*gW1), 
+    (L1.b, L1.b - learning_rate*gb1),
+    (L2.W, L2.W - learning_rate*gW2),
+    (L2.b, L2.b - learning_rate*gb2)
+  ]
+)
+
+
+predict = theano.function(inputs=[x], outputs=L2.outputs)
+fig = plt.figure()
+ax = fig.add_subplot(1,1,1)
+ax.scatter(x_data, y_data)
+plt.ion()
+plt.show()
+
+for i in range(1000):
+  #training
+  err = train(x_data, y_data)
+  if i%50 ==0:
+    try:
+      ax.lines.remove(lines[0])
+    except Exception:
+      pass
+    pv = predict(x_data)
+    lines = ax.plot(x_data, pv, 'r-', lw=5)
+    plt.pause(1)
+    #print(err)
+
+ 
+{% endhighlight %}
+
+Check out the [Jekyll docs][jekyll-docs] for more info on how to get the most out of Jekyll. File all bugs/feature requests at [Jekyll’s GitHub repo][jekyll-gh]. If you have questions, you can ask them on [Jekyll Talk][jekyll-talk].
+
+[jekyll-docs]: https://jekyllrb.com/docs/home
+[jekyll-gh]:   https://github.com/jekyll/jekyll
+[jekyll-talk]: https://talk.jekyllrb.com/
