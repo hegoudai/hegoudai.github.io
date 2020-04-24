@@ -1,0 +1,41 @@
+// Placeholder to allow defining custom styles that override everything else.
+// (Use `_sass/minima/custom-variables.scss` to override variable defaults)
+header {
+  .wrapper {
+    font-family: -apple-system,BlinkMacSystemFont,"Helvetica Neue",Arial,"PingFang SC","Hiragino Sans GB",STHeiti,"Microsoft YaHei","Microsoft JhengHei","Source Han Sans SC","Noto Sans CJK SC","Source Han Sans CN","Noto Sans SC","Source Han Sans TC","Noto Sans CJK TC","WenQuanYi Micro Hei",SimSun,sans-serif;
+    margin-left: 0;
+    margin-right: 0;
+    max-width: 100%;
+  }
+
+  .site-nav .page-link {
+    color: #fff;
+    font-size: 12px;
+    line-height: 20px;
+    font-weight: 800;
+    letter-spacing: 1px;
+  }
+
+  .site-title {
+    padding: 20px;
+    line-height: 20px;
+  }
+
+  .blog-title-wrapper{
+    text-align: center;
+    padding-top: 130px; 
+  }
+
+  .blog-title {
+    margin: 0 auto;
+  }
+
+  h1 {
+    color: white;
+    font-family: -apple-system,BlinkMacSystemFont,"Helvetica Neue",Arial,"PingFang SC","Hiragino Sans GB",STHeiti,"Microsoft YaHei","Microsoft JhengHei","Source Han Sans SC","Noto Sans CJK SC","Source Han Sans CN","Noto Sans SC","Source Han Sans TC","Noto Sans CJK TC","WenQuanYi Micro Hei",SimSun,sans-serif;
+    line-height: 1.1;
+    font-weight: 700;
+    font-size: 80px;
+  }
+
+}
