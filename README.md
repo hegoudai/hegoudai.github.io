@@ -1,322 +1,326 @@
-# minima
+# Beautiful Jekyll
 
-*Minima is a one-size-fits-all Jekyll theme for writers*. It's Jekyll's default (and first) theme. It's what you get when you run `jekyll new`.
+![Beautiful Jekyll CI](https://github.com/daattali/beautiful-jekyll/workflows/Beautiful%20Jekyll%20CI/badge.svg)
+[![Gem Version](https://badge.fury.io/rb/beautiful-jekyll-theme.svg)](https://badge.fury.io/rb/beautiful-jekyll-theme)
 
-***Disclaimer:** The information here may vary depending on the version you're using. Please refer to the `README.md` bundled
-within the theme-gem for information specific to your version or by pointing your browser to the Git tag corresponding to your
-version. e.g. https://github.com/jekyll/minima/blob/v2.5.0/README.md*  
-*Running `bundle show minima` will provide you with the local path to your current theme version.*
+> *Copyright 2020 [Dean Attali](https://deanattali.com)*
 
+**Beautiful Jekyll** is a ready-to-use template to help you create an awesome website quickly. Perfect for personal sites, blogs, or simple project websites.  [Check out a demo](https://deanattali.com/beautiful-jekyll) of what you'll get after just two minutes.  You can also look at [my personal website](https://deanattali.com) to see it in use, or see examples of websites other people created using this theme [here](#showcased-users-success-stories).
 
-[Theme preview](https://jekyll.github.io/minima/)
+**If you enjoy this theme, please consider [supporting me](http://paypal.me/daattali) or [sponsoring me](https://github.com/sponsors/daattali) for developing and maintaining it for over 5 years.**
 
-![minima theme preview](/screenshot.png)
+<p align="center">
+  <a href="https://paypal.me/daattali">
+    <img src="https://camo.githubusercontent.com/0e9e5cac101f7093336b4589c380ab5dcfdcbab0/68747470733a2f2f63646e2e6a7364656c6976722e6e65742f67682f74776f6c66736f6e2f70617970616c2d6769746875622d627574746f6e40312e302e302f646973742f627574746f6e2e737667" />
+  </a>
+</p>
 
-## Installation
+### Table of contents
 
-Add this line to your Jekyll site's Gemfile:
+- [Build your website in 3 steps](#build-your-website-in-3-steps)
+- [Add your own content](#add-your-own-content)
+- [Last important thing: YAML front matter ("parameters" for a page)](#last-important-thing-yaml-front-matter-parameters-for-a-page)
+- [Features](#features)
+- [Creating a User Page vs a Project Page](#creating-a-user-page-vs-a-project-page)
+- [Showcased users (success stories!)](#showcased-users-success-stories)
+- [Advanced: local development](#advanced-local-development-using-docker)
+- [FAQ and support](#faq-and-support)
+- [Credits and contributions](#credits)
 
-```ruby
-gem "minima"
+## Build your website in 3 steps
+
+Getting started is *literally* as easy as 1-2-3 :smile:
+Scroll down to see the steps involved, but here is a 40-second video just as a reference as you work through the steps.
+
+![Installation steps](img/install-steps.gif)
+
+### 0. Sign up to GitHub
+
+The easiest way to create your site is by having a GitHub account. If you don't have one, [sign up here](https://github.com/join) - it takes one minute.
+
+### 1. Fork this project
+
+Fork this project by clicking the __*Fork*__ button at the top right corner of this page. Forking means that you now copied this entire project and all the files into your account.
+
+### 2. Rename the project to `<yourusername>.github.io`
+
+Click on __*Settings*__ at the top (the cog icon) and on that page you'll have an option to rename the project (*repository name*). This will create a website with the **Beautiful Jekyll** template that will be available at `https://<yourusername>.github.io` within a couple minutes.
+
+### 3. Customize your website settings
+
+Edit the `_config.yml` file to change all the settings to reflect your site. To edit the file, click on it to view the file and then click on the pencil icon to edit it (watch the video tutorial above if you're confused).  The settings in the file are self-explanatory and I added comments inside the file to help you understand what each setting does. Any line that begins with a hashtag (`#`) is a comment, and the other lines are actual settings.
+
+Another way to edit the config file (or any other file) is to use [prose.io](https://prose.io/), which is just a simple interface to allow you to more intuitively edit files or add new files to your project.
+
+After you save your changes to the config file (by clicking on *Commit changes* as the video tutorial shows), your website should be ready in a minute or two at `https://<yourusername>.github.io`. Every time you make a change to any file, your website will get rebuilt and should be updated in about a minute or so.
+
+You can now visit your shiny new website, which will be seeded with several sample blog posts and a couple other pages. Your website is at `https://<yourusername>.github.io` (replace `<yourusername>` with your user name). Do not add `www` to the URL - it will not work!
+
+**Note:** The video above goes through the setup for a user with username `daattalitest`. I only edited one setting in the `_config.yml` file in the video, but **you should actually go through the rest of the settings as well. Don't be lazy, go through all the settings :)**
+
+## Add your own content
+
+To add pages to your site, you can either write a markdown file (`.md`) or you can write an HTML file directly.  It is much easier to write markdown than HTML, so I suggest you do that (use the [tutorial I mentioned above](https://markdowntutorial.com/) if you need to learn markdown). You can look at some files on this site to get an idea of how to write markdown. To look at existing files, click on any file that ends in `.md`, for example [`aboutme.md`](./aboutme.md). On the next page you can see some nicely formatted text (there is a word in bold, a link, bullet points), and if you click on the pencil icon to edit the file, you will see the markdown that generated the pretty text. Very easy!
+
+In contrast, look at [`index.html`](./index.html). That's how your write HTML - not as pretty. So stick with markdown if you don't know HTML.
+
+Any file that you add inside the [`_posts`](./_posts) directory will be treated as a blog entry.  You can look at the existing files there to get an idea of how to write blog posts.  After you successfully add your own post, you can delete the existing files inside [`_posts`](./_posts) to remove the sample posts, as those are just demo posts to help you learn.
+
+## Last important thing: YAML front matter ("parameters" for a page)
+
+In order to have your new pages use this template and not just be plain pages, you need to add [YAML front matter](https://jekyllrb.com/docs/front-matter/) to the top of each page. This is where you'll give each page some parameters that I made available, such as a title and subtitle. I'll go into more detail about what parameters are available later. If you don't want to use any parameters on your new page (this also means having no title), then use the empty YAML front matter:
+
 ```
-
-And then execute:
-
-    $ bundle
-
-
-## Contents At-A-Glance
-
-Minima has been scaffolded by the `jekyll new-theme` command and therefore has all the necessary files and directories to have a new Jekyll site up and running with zero-configuration.
-
-### Layouts
-
-Refers to files within the `_layouts` directory, that define the markup for your theme.
-
-  - `default.html` &mdash; The base layout that lays the foundation for subsequent layouts. The derived layouts inject their contents into this file at the line that says ` {{ content }} ` and are linked to this file via [FrontMatter](https://jekyllrb.com/docs/frontmatter/) declaration `layout: default`.
-  - `home.html` &mdash; The layout for your landing-page / home-page / index-page. [[More Info.](#home-layout)]
-  - `page.html` &mdash; The layout for your documents that contain FrontMatter, but are not posts.
-  - `post.html` &mdash; The layout for your posts.
-
-#### Home Layout
-
-`home.html` is a flexible HTML layout for the site's landing-page / home-page / index-page. <br/>
-
-##### *Main Heading and Content-injection*
-
-From Minima v2.2 onwards, the *home* layout will inject all content from your `index.md` / `index.html` **before** the **`Posts`** heading. This will allow you to include non-posts related content to be published on the landing page under a dedicated heading. *We recommended that you title this section with a Heading2 (`##`)*.
-
-Usually the `site.title` itself would suffice as the implicit 'main-title' for a landing-page. But, if your landing-page would like a heading to be explicitly displayed, then simply define a `title` variable in the document's front matter and it will be rendered with an `<h1>` tag.
-
-##### *Post Listing*
-
-This section is optional from Minima v2.2 onwards.<br/>
-It will be automatically included only when your site contains one or more valid posts or drafts (if the site is configured to `show_drafts`).
-
-The title for this section is `Posts` by default and rendered with an `<h2>` tag. You can customize this heading by defining a `list_title` variable in the document's front matter.
-
-
-### Includes
-
-Refers to snippets of code within the `_includes` directory that can be inserted in multiple layouts (and another include-file as well) within the same theme-gem.
-
-  - `disqus_comments.html` &mdash; Code to markup disqus comment box.
-  - `footer.html` &mdash; Defines the site's footer section.
-  - `google-analytics.html` &mdash; Inserts Google Analytics module (active only in production environment).
-  - `head.html` &mdash; Code-block that defines the `<head></head>` in *default* layout.
-  - `custom-head.html` &mdash; Placeholder to allow users to add more metadata to `<head />`.
-  - `header.html` &mdash; Defines the site's main header section. By default, pages with a defined `title` attribute will have links displayed here.
-  - `social.html` &mdash; Renders social-media icons based on the `minima:social_links` data in the config file.
-
-
-### Sass
-
-Refers to `.scss` files within the `_sass` directory that define the theme's styles.
-
-  - `minima/skins/classic.scss` &mdash; The "classic" skin of the theme. *Used by default.*
-  - `minima/initialize.scss` &mdash; A component that defines the theme's *skin-agnostic* variable defaults and sass partials.
-    It imports the following components (in the following order):
-    - `minima/custom-variables.scss` &mdash; A hook that allows overriding variable defaults and mixins. (*Note: Cannot override styles*)
-    - `minima/_base.scss` &mdash; Sass partial for resets and defines base styles for various HTML elements.
-    - `minima/_layout.scss` &mdash; Sass partial that defines the visual style for various layouts.
-    - `minima/custom-styles.scss` &mdash; A hook that allows overriding styles defined above. (*Note: Cannot override variables*)
-
-Refer the [skins](#skins) section for more details.
-
-
-### Assets
-
-Refers to various asset files within the `assets` directory.
-
-  - `assets/css/style.scss` &mdash; Imports sass files from within the `_sass` directory and gets processed into the theme's
-    stylesheet: `assets/css/styles.css`.
-  - `assets/minima-social-icons.svg` &mdash; A composite SVG file comprised of *symbols* related to various social-media icons.
-    This file is used as-is without any processing. Refer [section on social networks](#social-networks) for its usage.
-
-
-### Plugins
-
-Minima comes with [`jekyll-seo-tag`](https://github.com/jekyll/jekyll-seo-tag) plugin preinstalled to make sure your website gets the most useful meta tags. See [usage](https://github.com/jekyll/jekyll-seo-tag#usage) to know how to set it up.
-
-
-## Usage
-
-Have the following line in your config file:
-
-```yaml
-theme: minima
-```
-
-
-### Customizing templates
-
-To override the default structure and style of minima, simply create the concerned directory at the root of your site, copy the file you wish to customize to that directory, and then edit the file.
-e.g., to override the [`_includes/head.html `](_includes/head.html) file to specify a custom style path, create an `_includes` directory, copy `_includes/head.html` from minima gem folder to `<yoursite>/_includes` and start editing that file.
-
-The site's default CSS has now moved to a new place within the gem itself, [`assets/css/style.scss`](assets/css/style.scss).
-
-In Minima 3.0, if you only need to customize the colors of the theme, refer to the subsequent section on skins. To have your
-*CSS overrides* in sync with upstream changes released in future versions, you can collect all your overrides for the Sass
-variables and mixins inside a sass file placed at `_sass/minima/custom-variables.scss` and all other overrides inside a sass file
-placed at path `_sass/minima/custom.scss`.
-
-You need not maintain entire partial(s) at the site's source just to override a few styles. However, your stylesheet's primary
-source (`assets/css/style.scss`) should contain the following:
-
-  - Front matter dashes at the very beginning (can be empty).
-  - Directive to import a skin.
-  - Directive to import the base styles (automatically loads overrides when available).
-
-Therefore, your `assets/css/style.scss` should contain the following at minimum:
-
-```sass
 ---
 ---
-
-@import "minima/skins/{{ site.minima.skin | default: 'classic' }}";
-@import "minima/initialize";
 ```
 
-#### Skins
-
-Minima 3.0 supports defining and switching between multiple color-palettes (or *skins*).
+If you want to use any parameters, write them between the two lines. For example, you can have this at the top of a page:
 
 ```
-.
-├── minima.scss
-└── minima
-    └── _syntax-highlighting.scss
+---
+title: Contact me
+subtitle: Here you'll find all the ways to get in touch with me
+---
 ```
 
+You can look at the top of [`aboutme.md`](./aboutme.md) or [`index.html`](./index.html) as more examples.
 
-A skin is a Sass file placed in the directory `_sass/minima/skins` and it defines the variable defaults related to the "color"
-aspect of the theme. It also embeds the Sass rules related to syntax-highlighting since that is primarily related to color and
-has to be adjusted in harmony with the current skin.
+**Important takeaway: ALWAYS add the YAML front matter, which is two lines with three dashes, to EVERY page. If you have any parameters, they go between the two lines.**    
+If you don't include YAML then your file will not use the template.
 
-The default color palette for Minima is defined within `_sass/minima/skins/classic.scss`. To switch to another available skin,
-simply declare it in the site's config file. For example, to activate `_sass/minima/skins/dark.scss` as the skin, the setting
-would be:
+## Features
 
-```yaml
-minima:
-  skin: dark
+### Mobile-first
+
+**Beautiful Jekyll** is designed to look great on both large-screen and small-screen (mobile) devices. Load up your site on your phone or your gigantic iMac, and the site will work well on both, though it will look slightly different.
+
+### Customizable
+
+Many personalization settings in `_config.yml`, such as setting your name and site's description, changing the background colour/image, setting your avatar to add a little image in the navigation bar, customizing the links in the menus, customizing what social media links to show in the footer, etc.
+
+### Allowing users to leave comments
+
+If you want to enable comments on your site, Beautiful Jekyll supports several different commenting platforms you can choose from: [Disqus](https://disqus.com/), [Facebook](https://developers.facebook.com/docs/plugins/comments), [Utterances](https://utteranc.es/), and [Staticman](https://staticman.net). If any of these are set in the configuration file, then all blog posts will have comments turned on by default. To turn off comments on a particular blog post, add `comments: false` to the YAML front matter. If you want to add comments on the bottom of a non-blog page, add `comments: true` to the YAML front matter.
+
+#### Disqus comments
+
+To use Disqus, simply sign up to [Disqus](https://disqus.com/) and add your Disqus shortname to the `disqus` parameter in the `_config.yml` file.
+
+#### Facebook comments
+
+To use Facebook comments, create a Facebook app using [Facebook developers](https://developers.facebook.com/docs/apps/register), and add the Facebook App ID to the `fb_comment_id` parameter in `_config.yml`.
+
+#### Utterances comments 
+
+To use [Utterances comments](https://utteranc.es/), follow these steps: (1) Enable Issues in your GitHub repository, (2) Install the Utterances app in your repository (go to https://github.com/apps/utterances), (3) Fill in the `repository` parameter in the utterances section of the `_config.yml` file.
+
+#### Staticman comments
+
+To use Staticman, you first need to invite `staticmanlab` as a collaborator to your repository (by going to your repository **Settings** page, navigate to the **Collaborators** tab, and add the username `staticmanlab`), and then accept the invitation by going to `https://staticman3.herokuapp.com/v3/connect/github/<username>/<repo-name>`. Lastly, fill in the `staticman` parameters in the Staticman section of `_config.yml`. You may also choose a different Staticman instance other than `staticmanlab`.
+
+Optional: You may want to configure a webhook to prevent old inactive branches (representing approved comments) from stacking up.  You can refer to [Staticman's documentation](https://staticman.net/docs/webhooks) for details.  Make sure to input the **Payload URL** according to your chosen `endpoint`.  For example, the default `endpoint` is `https://staticman3.herokuapp.com/v3/entry/github/`, so the corresponding **Payload URL** should be `https://staticman3.herokuapp.com/v1/webhook`.
+
+
+### Adding Google Analytics to track page views
+
+Beautiful Jekyll lets you easily add Google Analytics to all your pages. This will let you track all sorts of information about visits to your website, such as how many times each page is viewed and where (geographically) your users come from.  To add Google Analytics, simply sign up to [Google Analytics](https://www.google.com/analytics/) to obtain your Google Tracking ID, and add this tracking ID to the `google_analytics` parameter in `_config.yml`.
+
+### Sharing blog posts on social media
+
+By default, all blog posts will have buttons at the bottom of the post to allow people to share the current page on Twitter/Facebook/LinkedIn.  You can choose to enable/disable specific social media websites in the `_config.yml` file. You can also turn off the social media buttons on specific blog posts using `social-share: false` in the YAML front matter.
+
+### RSS feed
+
+Beautiful Jekyll automatically generates a simple RSS feed of your blog posts, to allow others to subscribe to your posts.  If you want to add a link to your RSS feed in the footer of every page, find the `rss: false` line in `_config.yml` and change it to `rss: true`.
+
+### Page types
+
+- **post** - To write a blog post, add a markdown or HTML file in the `_posts` folder. As long as you give it YAML front matter (the two lines of three dashes), it will automatically be rendered like a blog post. Look at the existing blog post files to see examples of how to use YAML parameters in blog posts.
+- **page** - Any page outside the `_posts` folder that uses YAML front matter will have a very similar style to blog posts.
+- **home** - The home layout is meant to act as the homepage of your blog posts - it will display all your blog posts, sorted from newest to oldest. A file using the `home` layout must be named `index.html` (not `index.md` or anything else!).
+- **minimal** - If you want to create a page with minimal styling (ie. without the bulky navigation bar and footer), assign `layout: minimal` to the YAML front matter.
+- If you want to completely bypass the template engine and just write your own HTML page, simply omit the YAML front matter. Only do this if you know how to write HTML!
+
+### YAML front matter parameters
+
+These are the main parameters you can place inside a page's YAML front matter that **Beautiful Jekyll** supports.
+
+Parameter   | Description
+----------- | -----------
+title       | Page or blog post title
+subtitle    | Short description of page or blog post that goes under the title
+tags        | List of tags to categorize the post. Separate the tags with commas and place them inside square brackets. Example: `[personal, self help, finance]`
+bigimg      | Include a large full-width image at the top of the page.  You can either give the path to a single image, or provide a list of images to cycle through (see [my personal website](https://deanattali.com/) as an example).
+comments    | If you want do add comments to a specific page, use `comments: true`. Comments are automatically enabled on blog posts; to turn comments off for a specific post, use `comments: false`. Comments only work if you enable at least one provider(Facebook, disqus, staticman) in `_config.yml` file.
+show-avatar | If you have an avatar configured in the `_config.yml` but you want to turn it off on a specific page, use `show-avatar: false`. If you want to turn it off by default, locate the line `show-avatar: true` in the file `_config.yml` and change the `true` to `false`; then you can selectively turn it on in specific pages using `show-avatar: true`.
+image       | If you want to add a personalized image to your blog post that will show up next to the post's excerpt and on the post itself, use `image: /path/to/img`.
+readtime    | If you want to show how many minutes it will take to read a post in the header, add `readtime: true`.
+share-img   | If you want to specify an image to use when sharing the page on Facebook or Twitter, then provide the image's full URL here.
+social-share | If you don't want to show buttons to share a blog post on social media, use `social-share: false` (this feature is turned on by default).
+use-site-title | If you want to use the site title rather than page title as HTML document title (ie. browser tab title), use `use-site-title: true`. When set, the document title will take the format `Site Title - Site Description` (eg. `My website - A virtual proof that name is awesome!`). By default, it will use `Page Title` if it exists, or `Site Title` otherwise.
+language    | HTML language code to be set on &lt;html&gt; element (see [W3Schools website](https://www.w3schools.com/tags/ref_language_codes.asp) for more info on this topic).  Language can also be set site-wide in `_config.yml`.
+layout      | What type of page this is (default is `post` for blog posts and `page` for other pages. You can use `minimal` if you don't want a header and footer). The `index.html` file should use the `home` layout to show all the blog posts.
+js          | List of local JavaScript files to include in the page (eg. `/js/mypage.js`)
+ext-js      | List of external JavaScript files to include in the page (eg. `//cdnjs.cloudflare.com/ajax/libs/underscore.js/1.8.2/underscore-min.js`). External JavaScript files that support [Subresource Integrity (SRI)](https://developer.mozilla.org/en-US/docs/Web/Security/Subresource_Integrity) can be specified using the `href` and `sri` parameters eg.<br/>`href: "//code.jquery.com/jquery-3.1.1.min.js"`<br/>`sri: "sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8="`
+css         | List of local CSS files to include in the page
+ext-css      | List of external CSS files to include in the page. External CSS files using SRI (see `ext-js` parameter) are also supported.
+googlefonts | List of Google fonts to include in the page (eg. `["Monoton", "Lobster"]`)
+gh-repo   | If you want to show GitHub buttons at the top of a post, this sets the GitHub repo name (eg. `daattali/beautiful-jekyll`). You must also use the `gh-badge` parameter to specify what buttons to show.
+gh-badge  | Select which GitHub buttons to display, available options are: [star, watch, fork, follow]. You must also use the `gh-repo` parameter to specify the GitHub repo.
+
+### Advanced features (including how to use a custom URL address for your site)
+
+I wrote [a blog post](https://deanattali.com/2015/03/12/beautiful-jekyll-how-to-build-a-site-in-minutes/) describing some more advanced features that I used in my website that are applicable to any Jekyll site.  It describes how I used a custom URL for my site (deanattali.com instead of daattali.github.io), how to add a Google-powered search into your site, and provides a few more details about having an RSS feed.
+
+## Creating a User Page vs a Project Page
+
+If you're not sure what the difference is, you can probably safely ignore this section.
+
+If you want to use this theme to host a website that will be available at `https://YOURUSERNAME.github.io`, then you do not need to read this section. That is called a User Page, you can only have one User Page in your GitHub account, and it is what you get by default when forking this project.
+
+If you want to use this theme to create a website for a particular repository, it will be available at `https://YOURUSERNAME.github.io/PROJECTNAME`, and that is called a [Project Page](https://help.github.com/articles/user-organization-and-project-pages/). You can have a Project Page for any repository you have on GitHub.
+
+**When using this theme for a Project Page, by default your website will be served from the `gh-pages` branch**, so you must take the following steps: 
+
+1. [Delete the existing `gh-pages` branch](https://help.github.com/en/articles/creating-and-deleting-branches-within-your-repository#deleting-a-branch)
+
+2. [Create a new branch named `gh-pages` from the `master` branch](https://help.github.com/en/articles/creating-and-deleting-branches-within-your-repository#creating-a-branch)
+
+Alternatively, instead of the above two steps, you can opt to use the `master` branch instead of `gh-pages` branch as your website's source by choosing that option in the main Settings page. 
+
+## Showcased users (success stories!)
+
+To my huge surprise, Beautiful Jekyll has been used in over 500 websites in its first 6 months alone! Here is a hand-picked selection of some websites that use Beautiful Jekyll.
+
+Want your website featured here? [Contact me](https://deanattali.com/aboutme#contact) to let me know about your website.
+
+### Project/company websites
+
+| Website | Description |
+| :------ |:----------- |
+| [repidemicsconsortium.org/](https://www.repidemicsconsortium.org/) | R Epidemics Consortium |
+| [vaccineimpact.org](https://www.vaccineimpact.org/) | Vaccine Impact Modelling Consortium |
+| [derekogle.com/fishR](http://derekogle.com/fishR/) | Using R for Fisheries Analyses |
+| [bigdata.juju.solutions](http://bigdata.juju.solutions) | Creating Big Data solutions Juju Solutions |
+| [joecks.github.io/clipboard-actions](http://joecks.github.io/clipboard-actions/) | Clipboard Actions - an Android app |
+| [deanattali.com/shinyjs](http://deanattali.com/shinyjs/) | shinyjs - an R package |
+| [blabel.github.io](http://blabel.github.io) | Library for canonicalising blank node labels in RDF graphs |
+| [reactionic.github.io](http://reactionic.github.io) | Create iOS and Android apps with React and Ionic |
+| [ja2-stracciatella.github.io](http://ja2-stracciatella.github.io) | Jagged Alliance 2 Stracciatella |
+| [ddocent.com](http://ddocent.com/) | RADSeq Bioinformatics and Beyond |
+| [guitarlessons.org](https://www.guitarlessons.org/) | Free online guitar lessons for all |
+| [terremotocentroitalia.info](https://www.terremotocentroitalia.info/) | Information about the 2016 Italy earthquake |
+
+
+### Personal websites
+
+| Website | Who | What |
+| :------ |:--- | :--- |
+| [deanattali.com](https://deanattali.com) | Dean Attali | Creator of Beautiful Jekyll |
+| [ouzor.github.io](http://ouzor.github.io) | Juuso Parkkinen | Data scientist |
+| [derekogle.com](http://derekogle.com/) | Derek Ogle | Professor of Mathematical Sciences and Natural Resources |
+| [melyanna.github.io](http://melyanna.github.io/) | Melyanna | Shows off her nice art |
+| [chauff.github.io](http://chauff.github.io/) | Claudia Hauff | Professor at Delft University of Technology |
+| [kootenpv.github.io](http://kootenpv.github.io/) | Pascal van Kooten | Data analytics |
+| [sjackman.ca](http://sjackman.ca) | Shaun Jackman | PhD candidate in bioinformatics |
+| [anudit.in](http://www.anudit.in/) | Anudit Verma | Engineering student |
+| [sharepointoscar.github.io](http://sharepointoscar.github.io) | Oscar Medina | Independent Hacker |
+| [ocram85.com](https://ocram85.com) | Marco Blessing | A personal blog about PowerShell and automation |
+| [khanna.cc](https://khanna.cc/) | Harry Khanna | Law and software |
+
+## Advanced: Local development using Docker
+
+Beautiful Jekyll is meant to be so simple to use that you can do it all within the browser. However, if you'd like to develop locally on your own machine, that's possible too if you're comfortable with command line. Follow these simple steps set that up with Docker:
+
+1. Make sure you have [Docker](https://www.docker.com/) installed.
+
+2. Clone your repository locally.
+
+    ```bash
+    git clone https://github.com/<your_username>/<your_username>.github.io.git
+    ```
+
+3. Run the following shell commands to build the docker image and start the container for the first time:
+
+    ```bash
+    cd <repository_folder>
+    docker build -t beautiful-jekyll "$PWD"
+    docker run -d -p 4000:4000 --name beautiful-jekyll -v "$PWD":/srv/jekyll beautiful-jekyll
+    ```
+
+
+Now that Docker is set up, you do not need to run the above steps again. You can now view your website at http://localhost:4000/. You can start the container again in the future with:
+
+```bash
+docker start beautiful-jekyll
 ```
 
-As part of the migration to support skins, some existing Sass variables have been retired and some **have been redefined** as
-summarized in the following table:
+And you can stop the server with:
 
-Minima 2.0      | Minima 3.0
---------------- | ----------
-`$brand-color`  | `$link-base-color`
-`$grey-*`       | `$brand-*`
-`$orange-color` | *has been removed*
-
-##### Available skins
-
-- classic
-- dark
-- solarized
-- solarized-dark
-
-### Customize navigation links
-
-This allows you to set which pages you want to appear in the navigation area and configure order of the links.
-
-For instance, to only link to the `about` and the `portfolio` page, add the following to your `_config.yml`:
-
-```yaml
-header_pages:
-  - about.md
-  - portfolio.md
+```bash
+docker stop beautiful-jekyll
 ```
 
+Whenever you make any changes to `_config.yml`, you must stop and re-start the server for the new config settings to take effect.
 
-### Change default date format
+Disclaimer: I personally am NOT using local development so I don't know much about running Jekyll locally. If you follow this route, please don't ask me questions because unfortunately I honestly won't be able to help!
 
-You can change the default date format by specifying `site.minima.date_format`
-in `_config.yml`.
+## FAQ and support
 
-```
-# Minima date format
-# refer to http://shopify.github.io/liquid/filters/date/ if you want to customize this
-minima:
-  date_format: "%b %-d, %Y"
-```
+If you need any help, I suggest heading over to the [Jekyll support forum](https://talk.jekyllrb.com/).
 
+Beautiful Jekyll is actively used by thousands of people with wildly varying degrees of competency, so it's impossible to answer all the questions that may arise. Below are answers to a few very common questions. Most questions that I get asked are not directly related to this theme, and instead are more general questions about Jekyll or web development. Many such questions can be answered by reading the [Jekyll documentation](https://jekyllrb.com/) or with Google.
 
-### Extending the `<head />`
+#### How do I change the number of posts per page OR the colour of the navigation bar OR the image in the navigation bar OR ...?
 
-You can *add* custom metadata to the `<head />` of your layouts by creating a file `_includes/custom-head.html` in your source directory. For example, to add favicons:
+Beautiful Jekyll is built to be very customizable, and as such, many questions about "how do I change ..." can be answered by looking at the `_config.yml` file. The configuration file has many adjustable parameters to customize your site.
 
-1. Head over to [https://realfavicongenerator.net/](https://realfavicongenerator.net/) to add your own favicons.
-2. [Customize](#customization) default `_includes/custom-head.html` in your source directory and insert the given code snippet.
+#### How do I add a favicon to my site?
 
+Easy! Just place a valid `favicon.ico` (or another valid favicon image) in the root directory of your project. And then wait! It can take a while to update.
 
-### Enabling comments (via Disqus)
+#### How do I move the blog to another page instead of having it on the home page?
 
-Optionally, if you have a Disqus account, you can tell Jekyll to use it to show a comments section below each post.
+The default style of Beautiful Jekyll is to feature the blog feed on the front page. But for many sites that's not the ideal structure, and you may want to have a separate dedicated page for the blog posts. To have the blog hosted on a different URL (for example at `<mysite.com>/blog`), copy the `index.html` file into a folder with the same name as the desired page (for example, to `blog/index.html`), and in the `_config.yml` file you need to add a parameter `paginate_path: "/<page name>/page:num/"` (for example `paginate_path: "/blog/page:num/"`).
 
-To enable it, add the following lines to your Jekyll site:
+#### What size do you recommend using for the `bigimg` photos?
 
-```yaml
-  disqus:
-    shortname: my_disqus_shortname
-```
+Unfortunately, this is a no-answer! There isn't a one-size-fits-all solution to this, because every person will view your site on a different browser with different dimensions. Some browsers will have very wide aspect ratio, some will be narrower, some will be vertical (such as phones), different phones have different screens, etc. The image will always be centered, so the only tip I can give is that you should make sure the important part of the image is in the middle so that it'll always show. Other than that, every browser will show a different clipping of the image.
 
-You can find out more about Disqus' shortnames [here](https://help.disqus.com/installation/whats-a-shortname).
+#### How do I use MathJax equations in my posts?
 
-Comments are enabled by default and will only appear in production, i.e., `JEKYLL_ENV=production`
+MathJax can be easily integrated into your website with a one-line addition. You can see [this discussion](https://github.com/daattali/beautiful-jekyll/issues/195) for more information.
 
-If you don't want to display comments for a particular post you can disable them by adding `comments: false` to that post's YAML Front Matter.
+#### My project page appear to be broken after a recent update!
 
-:warning: `url`, e.g. `https://example.com`, must be set in you config file for Disqus to work.
+In June 2019, some URL related settings have been adjusted to be more in-line with how Jekyll uses them officially. Project Page absolute links might appear to be broken if you haven't propagated all necessary changes to your local templates, or if you have created additional templates making use of old settings. If a link contains a duplicated project path component, this is most likely the cause. In summary:
 
-### Author Metadata
+| &nbsp; | Old behavior | New behavior |
+| --- | --- | --- |
+| `url` setting | `https://user.github.io/projectname` | (unset, GitHub auto detects) |
+| `baseurl` setting | `/projectname` | (unset, GitHub auto detects) |
+| Absolute link construction | `{{ site.url }}/your/path` | `{{ '/your/path' \| absolute_url }}` |
+| Relative link construction | `{{ site.baseurl }}/your/path` | `{{ '/your/path' \| relative_url }}` |
 
-From `Minima-3.0` onwards, `site.author` is expected to be a mapping of attributes instead of a simple scalar value:
+## Credits
 
-```yaml
-author:
-  name: John Smith
-  email: "john.smith@foobar.com"
-```
+This template was not made entirely from scratch. I would like to give special thanks to:
+- [Barry Clark](https://github.com/barryclark) and his project [Jekyll Now](https://github.com/barryclark/jekyll-now), from whom I've taken several ideas and code snippets, as well as some documenation tips.
+- [Iron Summit Media](https://github.com/IronSummitMedia) and their project [Bootstrap Clean Blog](https://github.com/IronSummitMedia/startbootstrap-clean-blog), from which I've used some design ideas and some of the templating code for posts and pagination.
 
-To migrate existing metadata, update your config file and any reference to the object in your layouts and includes as summarized below:
+I'd also like to thank [Dr. Jekyll's Themes](https://drjekyllthemes.github.io/), [Jekyll Themes](http://jekyllthemes.org/), and another [Jekyll Themes](http://jekyllrc.github.io/jekyllthemes/) for featuring Beautiful Jekyll in their Jekyll theme directories.
 
-Minima 2.x    | Minima 3.0
-------------- | -------------------
-`site.author` | `site.author.name`
-`site.email`  | `site.author.email`
+## Contributions
 
+If you find anything wrong or would like to contribute in any way, feel free to create a pull request/open an issue/send me a message.  Any comments are welcome!
 
-### Social networks
+Thank you to [all contributors](https://github.com/daattali/beautiful-jekyll/graphs/contributors). Special thanks to  [@OCram85](https://github.com/OCram85) and [@abelcheung](https://github.com/abelcheung) for contributing multiple times as well as helping with discussions.
 
-You can add links to the accounts you have on other sites, with respective icon, by adding one or more of the following options in your config.
-From `Minima-3.0` onwards, the usernames are to be nested under `minima.social_links`, with the keys being simply the social-network's name:
+If you do fork or clone this project to use as a template for your site, I would appreciate if you keep the link in the footer to this project.  I've noticed that several people who forked this repo removed the attribution and I would prefer to get the recognition if you do use this :)
 
-```yaml
-minima:
-  social_links:
-    twitter: jekyllrb
-    github: jekyll
-    stackoverflow: "11111"
-    dribbble: jekyll
-    facebook: jekyll
-    flickr: jekyll
-    instagram: jekyll
-    linkedin: jekyll
-    pinterest: jekyll
-    telegram: jekyll
-    microdotblog: jekyll
-    keybase: jekyll
+## Known limitations
 
-    mastodon:
-     - username: jekyll
-       instance: example.com
-     - username: jekyll2
-       instance: example.com
+- If you have a project page and you want a custom 404 page, you must have a custom domain.  See https://help.github.com/articles/custom-404-pages/.  This means that if you have a regular User Page you can use the 404 page from this theme, but if it's a website for a specific repository, the 404 page will not be used.
 
-    gitlab:
-     - username: jekyll
-       instance: example.com
-     - username: jekyll2
-       instance: example.com
-
-    youtube: jekyll
-    youtube_channel: UC8CXR0-3I70i1tfPg1PAE1g
-    youtube_channel_name: CloudCannon
-```
-
-
-### Enabling Google Analytics
-
-To enable Google Analytics, add the following lines to your Jekyll site:
-
-```yaml
-  google_analytics: UA-NNNNNNNN-N
-```
-
-Google Analytics will only appear in production, i.e., `JEKYLL_ENV=production`
-
-### Enabling Excerpts on the Home Page
-
-To display post-excerpts on the Home Page, simply add the following to your `_config.yml`:
-
-```yaml
-show_excerpts: true
-```
-
-
-## Contributing
-
-Bug reports and pull requests are welcome on GitHub at https://github.com/jekyll/minima. This project is intended to be a safe, welcoming space for collaboration, and contributors are expected to adhere to the [Contributor Covenant](http://contributor-covenant.org) code of conduct.
-
-## Development
-
-To set up your environment to develop this theme, run `script/bootstrap`.
-
-To test your theme, run `script/server` (or `bundle exec jekyll serve`) and open your browser at `http://localhost:4000`. This starts a Jekyll server using your theme and the contents. As you make modifications, your site will regenerate and you should see the changes in the browser after a refresh.
-
-## License
-
-The theme is available as open source under the terms of the [MIT License](http://opensource.org/licenses/MIT).
+- If there are many navigation bar links and avatar, some of the links may get partially hidden behind the avatar. 
