@@ -13,8 +13,8 @@ tags: [垃圾]
 
 ## 结果
 我成功把热搜杀掉了，还改了点tab文字假装自己很有文化素养。
-![Crepe](/_images/find_an_entrance/1.jpg)
-![Crepe](/_images/find_an_entrance/2.jpg)
+![Crepe](/img/find_an_entrance/1.jpg)
+![Crepe](/img/find_an_entrance/2.jpg)
 
 ## 总结
 不要说我脑残，也不要让我知道你觉得我脑残，我会不惜一切代价杀掉你，很恐怖。
